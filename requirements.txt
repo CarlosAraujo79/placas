@@ -1,6 +1,7 @@
 streamlit
-ultralytics
+streamlit-webrtc
 opencv-python-headless
+ultralytics
 pillow
-matplotlib
+numpy
 pytesseract
