@@ -66,6 +66,7 @@ elif option == "🎥 Webcam em Tempo Real":
 
     webrtc_streamer(key="placa", video_processor_factory=VideoProcessor)
 
+# 📼 Modo Vídeo
 elif option == "📼 Enviar Vídeo":
     uploaded_video = st.file_uploader("Envie um vídeo (mp4, avi)", type=["mp4", "avi", "mov"])
 
@@ -81,9 +82,6 @@ elif option == "📼 Enviar Vídeo":
             ret, frame = cap.read()
             if not ret:
                 break
-
-            # 🔁 ROTACIONA o frame em 90 graus no sentido horário
-            frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
 
             image_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             results = model.predict(image_rgb, device='cpu')
@@ -104,4 +102,3 @@ elif option == "📼 Enviar Vídeo":
             st.subheader("Placas detectadas no vídeo:")
             for p in set(placa_log):
                 st.code(p)
-
